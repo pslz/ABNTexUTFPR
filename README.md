@@ -14,6 +14,6 @@ As informações desse repositório podem ser atualizadas com frequência ou dem
 
 É importante ressaltar que o conteúdo desse repositório é gratuito, mas as pessoas envolvidas em sua organização, não assumem ou assumirão qualquer responsabilidade pelo uso do conteúdo aqui disponibilizado.
 
-De todo modo, espero que os dados desse repositório possa lhe ajudar em seus trabalhos com LaTeX.
+De todo modo, espero que os dados desse repositório possam lhe ajudar em seus trabalhos com LaTeX.
 
 Abraços o/
