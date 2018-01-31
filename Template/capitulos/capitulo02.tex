@@ -1,0 +1,66 @@
+\chapter{Desenvolvimento}
+
+Texto introdutório do capítulo corrente.
+
+\section{Seção com Exemplo de Tabelas} \label{sec:tabela}
+
+Abaixo o exemplo de uma tabela longa, ou seja, uma tabela que necessite mais de uma página para ser apresentada.
+
+Nossa tabela terá 6 colunas e 10 linhas.
+
+Existem sites que auxiliam na estruturação de tabelas para o LaTeX, como o \textbf{Tables Generator}\footnote{\url{https://www.tablesgenerator.com/}}. Entretanto, não encontrei um gerador de tabelas longas.
+
+O conteúdo dessa tabela é preenchido com Lorem Ipsum apenas para exemplo.
+
+\renewcommand*{\arraystretch}{1.5}
+
+{\footnotesize
+	\centering
+	\begin{longtable}{ M{.10\textwidth}  M{.15\textwidth}  M{.16\textwidth}  M{.15\textwidth}  M{.16\textwidth}  M{.12\textwidth} }
+		
+		\caption{Título da Tabela Longa} \\ \toprule
+		\label{tabela:longa}
+		
+		\textbf{Coluna 1} & \textbf{Coluna 2} & \textbf{Coluna 3} & \textbf{Coluna 4} & \textbf{Coluna 5} & \textbf{Coluna 6} \\ % Note a separação de col. e a quebra de linhas
+		
+		\hline 
+		
+		\endfirsthead
+		& & & & & \null \hfill(conclusão)\\ 
+		
+		\toprule
+		
+		\textbf{Coluna 1} & \textbf{Coluna 2} & \textbf{Coluna 3} & \textbf{Coluna 4} & \textbf{Coluna 5} & \textbf{Coluna 6} \\ %
+		
+		\hline % para uma linha horizontal
+		
+		\endhead
+		
+		Linha 01 & Lorem ipsum dolor sit amet, consectetur adipiscing elit. & Nulla neque enim, convallis et rutrum id, euismod at purus. &  Quisque finibus placerat sapien ut volutpat.  & Mauris vitae velit a lacus blandit suscipit in at magna. Nulla vel faucibus turpis. Donec in justo condimentum, viverra nibh sed, maximus quam. & Nulla facilisi. \\
+		
+		Linha 02 & Suspendisse massa nisi, sollicitudin eu bibendum at, ultrices ut ante. & Praesent lobortis dolor at ipsum ultrices porta &  Porchetta & Aenean nec congue metus & Vivamus vitae interdum arcu \\
+		
+		Linha 03 & Fusce pulvinar euismod rhoncus & Vestibulum ultrices, ipsum non porttitor aliquam, nulla augue convallis dui, ultricies imperdiet purus ex eu ipsum &  Praesent faucibus congue molestie & Ut odio orci, congue in venenatis a, dapibus vel tortor & Proin fringilla dolor nisi, nec porttitor purus lobortis vitae \\
+		
+		Linha 04 & Aliquam metus elit, varius eu mauris non, bibendum imperdiet massa & Suspendisse est libero, lacinia nec odio quis, lobortis accumsan tortor &  Lorem ipsum dolor sit amet & Morbi mauris neque, porta at condimentum in, tempor id lacus & In ut risus arcu \\
+		
+		Linha 05 & Vestibulum eleifend non augue consectetur consectetur & Nam auctor vitae ipsum eu iaculis &  Porchetta & Curabitur consectetur & Nam dignissim accumsan eleifend \\
+		
+		Linha 06 & Nam vitae convallis ante & Duis at nunc et ligula fermentum pharetra &  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae & Sed auctor purus quis sodales rutrum & Sed imperdiet euismod tellus \\
+		
+		Linha 07 & Duis eu nulla ipsum & Nulla quis volutpat nisi, at aliquam quam &  Aliquam porttitor suscipit diam a sagittis & Duis auctor interdum ipsum eu bibendum & Sed eu velit magna \\
+		
+		Linha 08 & Quisque vel odio nisi & Nam ac ante enim &  Integer porttitor sollicitudin convallis & Sed cursus velit quis feugiat facilisis & Suspendisse volutpat in massa quis aliquam \\
+		
+		Linha 09 & Donec sit amet enim quis lorem interdum imperdiet & Suspendisse bibendum, nunc sed ultrices tristique, tellus odio aliquam neque, ut venenatis ipsum velit et lorem &  Fusce eget lorem ut enim rutrum tristique & Sed volutpat nunc at sodales mollis & Nunc tincidunt \\
+		
+		Linha 10 & Interdum et malesuada fames ac ante ipsum primis in faucibus & Aliquam pharetra, tortor in semper porta &  Sed porttitor neque non lacus laoreet iaculis. & Pellentesque accumsan vulputate pharetra & Aliquam et velit dui \\ \toprule
+		
+		% não é preciso quebrar a última linha
+		\end{longtable}
+		\fonte{Autoria própria}
+}
+
+Nessa frase é possível referenciar a tabela criada (Tabela \ref{tabela:longa}).
+
+A seguir mas exemplos de outros comandos utilizados com frequência em documentos LaTeX.

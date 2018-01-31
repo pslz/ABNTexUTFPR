@@ -1,0 +1,344 @@
+% ------------------------------------------------------------------------
+% Este documento foi criado com base no abtex2-modelo-trabalho-academico.tex, v-1.9.6 laurocesar - Copyright 2012-2016 by abnTeX2 group at http://www.abntex.net.br/ 
+%
+% O modelo original, abnTeX2, é um Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	hyphens
+	]{abntex2}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{cmap}					 	   % Mapear caracteres especiais no PDF
+\usepackage{lmodern} 					 % Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}				% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}			   % Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}					  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}				  % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}							  % Controle das cores
+\usepackage{graphicx}					  % Inclusão de gráficos
+\usepackage{microtype} 					% para melhorias de justificação
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% ---
+% Pacotes para tabela de mais de uma página
+% ---
+\usepackage{lscape}
+\usepackage{longtable}
+
+% ---
+% Pacotes para manter a numeracao das notas de rodapé continuas entre capitulos
+% ---
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+\RequirePackage{utf_macros} % ajustes para tema da UFT
+\RequirePackage{dados_trabalho} % arquivo com dados específicos do trabalho
+\RequirePackage{info_code}
+
+\usepackage{todonotes}
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage{amsmath,amsfonts,amssymb} % pacote matematico
+\usepackage{mathptmx} % fonte times
+\usepackage{url}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{lastpage}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{ifthen}
+
+% ---
+% Pacotes para utilizar imagens do tipo .eps
+% ---
+\usepackage{epstopdf}
+\DeclareGraphicsExtensions{.eps}
+
+% ---
+% Pacotes para ajustar problema das notas de rodapé muito longas
+% ---
+\usepackage[bottom]{footmisc}
+\raggedbottom 
+\addtolength{\topskip}{0pt plus 10pt}
+\interfootnotelinepenalty=10000
+
+% ---
+% Pacotes para evitar linhas orfãs
+% ---
+\widowpenalty10000
+\clubpenalty10000
+
+% Caminho da pasta images
+\graphicspath{ {imagens/} }
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\ifthenelse{\equal{\LinkAzul}{S}}
+	{\definecolor{blue}{RGB}{41,5,195}} % links azuis
+	{\definecolor{blue}{RGB}{0,0,0}}% links pretos
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={\PalavrasChave}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+
+\begin{document}
+\verificaTitulo
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% corrigir problema de urls muito longas
+\hyphenrules{nohyphenation}\exhyphenpenalty 10000
+
+%corrigir problema dos espaços em branco que forçavam o texto a ficar proximo da imagem
+\raggedbottom
+
+% desativa hifenização mantendo o texto justificado.
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\sloppy
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto
+% ---
+
+% ---
+% Agradecimentos
+% ---
+	\ifthenelse{\equal{\ExisteAgradecimentos}{S}}
+	{	
+		\begin{agradecimentos}
+			\input{agradecimentos.tex}
+		\end{agradecimentos}
+	}
+	{}%
+% ---
+
+% ---
+% Epígrafe
+% ---
+	\ifthenelse{\equal{\ExisteEpigrafe}{S}}
+	{	
+		\begin{epigrafe}
+			\vspace*{\fill}	
+			\begin{flushright}
+				\input{epigrafe.tex}
+			\end{flushright}
+		\end{epigrafe}
+	}
+	{}% 
+%} 
+
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}
+	\NomeCitacao. \MakeUppercase{\TituloCorpo}.  \pageref{LastPage} p. \TipoTrabalho\ – \Programa, \Universidade. \Local, \the\year.
+	
+	\input{resumo.tex}
+	
+	\textbf{Palavras-chave}: \PalavrasChave
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+	\begin{otherlanguage*}{english}
+		\NomeCitacao. \MakeUppercase{\TituloEN}.  \pageref{LastPage} p. \TipoTrabalhoEN\ – \ProgramaEN, \UniversidadeEN. \Local, \the\year.
+		
+		\input{abstract.tex}
+		
+		\textbf{Keywords}: \PalavrasChaveEN
+	\end{otherlanguage*}
+\end{resumo}
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\ifthenelse{\equal{\ExisteFigura}{S}}
+{\listoffigures*}
+{}%
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\ifthenelse{\equal{\ExisteTabela}{S}}
+{\listoftables*}
+{}%
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\ifthenelse{\equal{\ExisteSigla}{S}}
+{\begin{siglas} \input{siglas.tex} \end{siglas}}
+{}%
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+\include{capitulos/capitulo01}
+\include{capitulos/capitulo02}
+\include{capitulos/capitulo03}
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+%
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\ifthenelse{\equal{\ExisteApendice}{S}}
+{
+	\begin{apendicesenv}
+	
+	% Imprime uma página indicando o início dos apêndices
+	\partapendices
+	
+	\input{apendice.tex}
+	
+	\end{apendicesenv}
+}
+% ---
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\ifthenelse{\equal{\ExisteAnexo}{S}}
+{
+	\begin{anexosenv}
+	
+		% Imprime uma página indicando o início dos anexos
+		\partanexos
+	
+		\input{anexo.tex}
+	
+	\end{anexosenv}
+}
+% ---
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+\phantompart
+\printindex
+%---------------------------------------------------------------------
+
+\end{document}

@@ -1,0 +1,106 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{utf_macros}
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}
+
+% Ajuste do espaçamento entre linhas
+\DisemulatePackage{setspace}
+\RequirePackage{setspace}
+
+% Ajuste para alinhamento da tabela
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Ajuste pra usar a fonte Lato
+% \usepackage[default]{lato}
+% \usepackage[T1]{fontenc}
+
+% Ajuste para usar Helvetica, o mais próximo do Arial possível
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Ajuste para que os títulos sejam em times
+\renewcommand{\ABNTEXchapterfont}{\rmfamily}
+
+% Ajuste para tamanho dos títulos
+\renewcommand{\ABNTEXchapterfontsize}{\LARGE}
+\renewcommand{\ABNTEXpartfontsize}{\LARGE}
+
+% Ajuste para alterar o gênero do termo da orientação 
+\renewcommand{\orientadorname}{\RotuloOrientacao}%
+
+% Ajuste na capa
+\renewcommand{\imprimircapa}
+{
+	\begin{capa}%
+		\begin{center}
+			{\linespread{1.0}
+				\fontsize{12pt}{12pt}\selectfont
+				\large\MakeUppercase{\Universidade}\\
+				\large\MakeUppercase{\Programa}\par	
+			}
+		\end{center}		
+		\vspace{14pt}	
+		\begin{center}
+			{\linespread{1.0}
+				\large\MakeUppercase{\imprimirautor}\\
+			}
+		\end{center}
+		\vspace*{\fill}
+		\begin{center}
+			{\linespread{1.0}
+				\begingroup
+				\fontsize{18pt}{18pt}\selectfont
+				\textbf{\MakeUppercase\TituloCapa} \par  
+				\endgroup
+			}
+		\end{center}
+		\vspace*{\fill}
+		\vspace{12pt}
+		\begin{center}
+			\large\MakeUppercase{\imprimirtipotrabalho}%
+		\end{center}
+		\vfill
+		\begin{center}
+			\textbf{\MakeUppercase{\imprimirlocal}}\par
+			\textbf{\imprimirdata}
+		\end{center}
+	\end{capa}
+}
+
+% Ajuste na folha de rosto
+\makeatletter
+\renewcommand{\folhaderostocontent}
+{
+	\begin{center}
+		{\large\MakeUppercase{\imprimirautor}}
+		\vspace*{\fill}\vspace*{\fill}
+		\begin{center}
+			{\fontsize{18pt}{12pt}\selectfont
+			\textbf{\MakeUppercase\TituloCapa}}
+		\end{center}
+		\vspace*{\fill}
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			\hspace{.45\textwidth}
+			\begin{minipage}{.5\textwidth}
+				\SingleSpacing
+				\imprimirpreambulo \par
+				\bigbreak
+				\imprimirorientadorRotulo~\imprimirorientador\par
+	 		\end{minipage}%
+			\vspace*{\fill}
+		}%
+		\vspace*{\fill}
+		\begin{center}
+			\textbf{\MakeUppercase{\imprimirlocal}}\par
+			\textbf{\imprimirdata}
+		\end{center}
+		\vspace*{1cm}
+	\end{center}
+}
+\makeatother
