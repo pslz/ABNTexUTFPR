@@ -2,6 +2,8 @@
 
 ## Boas-vindas ao Git do ABNTexUTFPR!
 
+O template ABNTexUTFPR foi criado para auxiliar pessoas a estruturarem, escreverem e organizarem TCCs, Dissertações e Teses em um projeto LaTeX, e por meio dele gerarem um PDF no formato exigido pela biblioteca da UTFPR.
+
 Esse repositório é organizado para que as pessoas que desejam utilizar o template ABNTexUTFPR, tenham acesso à informações básicas sobre:
 
 	* Instalação do LaTeX;
