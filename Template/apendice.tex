@@ -8,17 +8,32 @@ Texto de introdução, se necessário.
 	\centering
 	\caption{Tabelinha}
 	\label{tabela:tabelinha}
-	\begin{tabular}{lllllll}
-		& \multicolumn{3}{l}{\textbf{Situação}} \\
-		\hline                                % para uma linha horizontal
-		
-		\textbf{Atividades}                 & 1   & 2   & 3  \\
-		\hline                                % para uma linha horizontal
-		Ler  & \checkmark   & \checkmark   & \checkmark  \\
-		Revisar &     & \checkmark   & \checkmark  \\
-		Ajustar       & \checkmark   & \checkmark   & \checkmark  
+	\begin{tabular}{lll}
+		% Daqui pra baixo, vem o conteúdo da coluna de acordo com a quantidade de colunas
+		\hline     
+		\textbf{Título Coluna 1}  & \textbf{Título Coluna 2}   & \textbf{Título Coluna 3} \\
+		\hline
+		Coluna 1 - Linha 2  & Coluna 2 - Linha 2   & Coluna 3 - Linha 2 \\
+		Coluna 1 - Linha 3  & Coluna 2 - Linha 3   & Coluna 3 - Linha 3
 	\end{tabular}
 \end{table}
 \fonte{Autoria própria}
 
 
+Texto de introdução, se necessário.
+
+\begin{table}[H]
+	\centering
+	\caption{Tabela Com Cabeçalho Mesclado}
+	\label{tabela:tabelinha2}
+		\begin{tabular}{lllllll}
+			& \multicolumn{3}{l}{\textbf{Situação}} \\
+			\hline
+			\textbf{Atividades}                 & 1   & 2   & 3  \\
+			\hline
+			Ler  & \checkmark   & \checkmark   & \checkmark  \\
+			Revisar &     & \checkmark   & \checkmark  \\
+			Ajustar       & \checkmark   & \checkmark   & \checkmark  
+	\end{tabular}
+\end{table}
+\fonte{Autoria própria}
