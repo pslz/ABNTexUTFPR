@@ -11,11 +11,13 @@
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
+	
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
 	french,				% idioma adicional para hifenização
@@ -181,6 +183,35 @@
 % ---
 
 % ---
+% Inserir a ficha bibliografica
+% ---
+
+\ifthenelse{\equal{\ExisteFichaCatalografica}{S}}
+{
+	\begin{fichacatalografica}
+		
+		\includepdf{ficha_catalografica.pdf}
+		
+	\end{fichacatalografica}
+}
+
+% ---
+
+
+% ---
+% Inserir folha de aprovação
+% ---
+\ifthenelse{\equal{\ExisteFolhaAprovacao}{S}}
+{
+	\begin{folhadeaprovacao}
+		
+		\includepdf{folha_aprovacao.pdf}
+		
+	\end{folhadeaprovacao}
+}
+% ---
+
+% ---
 % Agradecimentos
 % ---
 	\ifthenelse{\equal{\ExisteAgradecimentos}{S}}
@@ -287,7 +318,7 @@
 % ----------------------------------------------------------
 \postextual
 % ----------------------------------------------------------
-%
+
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
