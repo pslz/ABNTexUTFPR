@@ -31,8 +31,16 @@
 \renewcommand{\ABNTEXchapterfontsize}{\LARGE}
 \renewcommand{\ABNTEXpartfontsize}{\LARGE}
 
-% Ajuste para alterar o gênero do termo da orientação 
-\renewcommand{\orientadorname}{\RotuloOrientacao}%
+% Ajuste para alterar o gênero do termo da orientação e da coorientação
+\renewcommand{\orientadorname}{\RotuloOrientacao}
+\renewcommand{\coorientadorname}{\RotuloCoorientacao}
+
+\newif\ifcoorientacao
+\newcommand{\temCoorientacao}[1]
+{
+	\ifthenelse{\equal{#1}{S}}{\coorientacaotrue}{}
+	\ifthenelse{\equal{#1}{N}}{\coorientacaofalse}{}
+}
 
 % Ajuste na capa
 \renewcommand{\imprimircapa}
@@ -92,6 +100,9 @@
 				\imprimirpreambulo \par
 				\bigbreak
 				\imprimirorientadorRotulo~\imprimirorientador\par
+				\ifcoorientacao
+					\imprimircoorientadorRotulo~\imprimircoorientador\par
+				\fi
 	 		\end{minipage}%
 			\vspace*{\fill}
 		}%
